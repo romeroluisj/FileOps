@@ -6,9 +6,9 @@ public class Main {
         superclass = new subclass
         */
 
-        AnyFile anyFile = new Article();
-        anyFile.setFilename("Hello World!");
-        String test = anyFile.getFilename();
+        Article article = new Article();
+        article.setFilename("Hello World!");
+        String test = article.getFilename();
         System.out.println(test);
 
         /* This doesn't work

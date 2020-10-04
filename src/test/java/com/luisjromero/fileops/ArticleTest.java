@@ -4,12 +4,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AnyFileTest {
-    private static AnyFile anyFile = null;
+public class ArticleTest {
+    private static AnyFile article = null;
 
     @BeforeAll
     public static void setUp() {
-        anyFile = new AnyFile();
+        article = new Article();
     }
 
     @Test
@@ -18,8 +18,8 @@ public class AnyFileTest {
         String expectedFilename = "myTest";
 
         // When
-        anyFile.setFilename(expectedFilename);
-        String actualFilename = anyFile.getFilename();
+        article.setFilename(expectedFilename);
+        String actualFilename = article.getFilename();
 
         // Then
         assertEquals(expectedFilename, actualFilename);

@@ -1,11 +1,9 @@
 package com.luisjromero.fileops;
-public class AnyFile {
+public abstract class AnyFile {
     private String filename = "";
     private String filenameExtension = "";
     private boolean filenameHasExtension = false;
     private boolean fileContainsData = false;
-
-    public AnyFile() {}
 
     public String getFilename() {return filename;}
     public void setFilename(String filename) {this.filename = filename;}
