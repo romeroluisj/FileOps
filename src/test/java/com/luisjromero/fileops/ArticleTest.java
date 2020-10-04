@@ -18,8 +18,8 @@ public class ArticleTest {
         String expectedFilename = "myTest";
 
         // When
-        article.setFilename(expectedFilename);
-        String actualFilename = article.getFilename();
+        article.setName(expectedFilename);
+        String actualFilename = article.getName();
 
         // Then
         assertEquals(expectedFilename, actualFilename);

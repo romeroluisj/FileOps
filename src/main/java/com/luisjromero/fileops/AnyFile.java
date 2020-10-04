@@ -1,16 +1,24 @@
 package com.luisjromero.fileops;
 public abstract class AnyFile {
-    private String filename = "";
-    private String filenameExtension = "";
-    private boolean filenameHasExtension = false;
-    private boolean fileContainsData = false;
+    /**
+     * This works:        Superclass superClass = new Subclass();
+     * This doesn't work: Subclass subClass = new Superclass();
+     */
 
-    public String getFilename() {return filename;}
-    public void setFilename(String filename) {this.filename = filename;}
-    public String getFilenameExtension() {return filenameExtension;}
-    public void setFilenameExtension(String filenameExtension) {this.filenameExtension = filenameExtension;}
-    public boolean isFilenameHasExtension() {return filenameHasExtension;}
-    public void setFilenameHasExtension(boolean filenameHasExtension) {this.filenameHasExtension = filenameHasExtension;}
-    public boolean isFileContainsData() {return fileContainsData;}
-    public void setFileContainsData(boolean fileContainsData) {this.fileContainsData = fileContainsData;}
+    private String name = "";
+    private String extension = "Abstract AnyFile fileNameExtension";
+    private int extensionLength = 0;
+    private boolean hasExtension = false;
+    private boolean containsData = false;
+
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
+    public String getExtension() {return extension;}
+    public void setExtension(String extension) {this.extension = extension;}
+    public int getExtensionLength() {return extensionLength;}
+    public void setExtensionLength(int extensionLength) {this.extensionLength = extensionLength; }
+    public boolean isHasExtension() {return hasExtension;}
+    public void setHasExtension(boolean hasExtension) {this.hasExtension = hasExtension;}
+    public boolean isContainsData() {return containsData;}
+    public void setContainsData(boolean containsData) {this.containsData = containsData;}
 }
