@@ -1,4 +1,4 @@
-package com.luisjromero.FileOps;
+package com.luisjromero.fileops;
 public class AnyFile {
     private String filename = "";
     private String filenameExtension = "";

@@ -1,4 +1,4 @@
-package com.luisjromero.FileOps;
+package com.luisjromero.fileops;
 
 public class Main {
     public static void main(String[] args) {
