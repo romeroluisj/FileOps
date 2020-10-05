@@ -1,4 +1,9 @@
 package com.luisjromero.fileops;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public abstract class AnyFile {
     /**
      * This works:        Superclass superClass = new Subclass();
@@ -12,6 +17,7 @@ public abstract class AnyFile {
     private boolean containsData = false;
     private String filePath = "";
     private String directoryPath = "";
+    private String fileContent = "test";
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
@@ -27,4 +33,16 @@ public abstract class AnyFile {
     public void setFilePath(String filePath) {this.filePath = filePath;}
     public String getDirectoryPath() {return directoryPath; }
     public void setDirectoryPath(String directoryPath) {this.directoryPath = directoryPath;}
+
+    public void fileToString(String filePath) {
+        try {
+            this.fileContent = Files.readString(Paths.get(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getStringContent() {
+        return this.fileContent;
+    }
 }
