@@ -33,7 +33,7 @@ public class ArticleTest {
 
         // When
         article.fileToString(filePath);
-        String actualContent = article.getStringContent();
+        String actualContent = article.getFileToString();
 
         // Then
         assertEquals(expectedContent, actualContent);
@@ -45,7 +45,7 @@ public class ArticleTest {
         String expectedContent = "test";
 
         // When
-        String actualContent = article.getStringContent();
+        String actualContent = article.getFileToString();
 
         // Then
         assertEquals(expectedContent, actualContent);

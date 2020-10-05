@@ -42,7 +42,7 @@ public abstract class AnyFile {
         }
     }
 
-    public String getStringContent() {
+    public String getFileToString() {
         return this.fileContent;
     }
 }
