@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Article article = new Article();
         String filePath = article.getFilePath();
-        article.fileToString(filePath);
-        String fileContent = article.getFileToString();
+        article.fileContentToString(filePath);
+        String fileContent = article.getFileContentString();
         System.out.println(fileContent);
     }
 }

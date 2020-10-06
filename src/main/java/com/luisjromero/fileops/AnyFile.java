@@ -17,7 +17,7 @@ public abstract class AnyFile {
     private boolean containsData = false;
     private String filePath = "";
     private String directoryPath = "";
-    private String fileContent = "test";
+    private String fileContentString = "test";
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
@@ -34,15 +34,15 @@ public abstract class AnyFile {
     public String getDirectoryPath() {return directoryPath; }
     public void setDirectoryPath(String directoryPath) {this.directoryPath = directoryPath;}
 
-    public void fileToString(String filePath) {
+    public void fileContentToString(String filePath) {
         try {
-            this.fileContent = Files.readString(Paths.get(filePath));
+            this.fileContentString = Files.readString(Paths.get(filePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String getFileToString() {
-        return this.fileContent;
+    public String getFileContentString() {
+        return this.fileContentString;
     }
 }
