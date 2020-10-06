@@ -17,12 +17,15 @@ public class Article extends AnyFile {
 
         String directoryPath = "/Users/luisromero/Dev/FileOps/article/";
         super.setDirectoryPath(directoryPath);
-        this.filePath = "/Users/luisromero/Dev/FileOps/article/SpanishArticle.txt";
+    }
+
+    public Article(String filePath) {
+        this.filePath = filePath;
         super.setFilePath(filePath);
     }
 
-    public void fileContentToWordArray() {
-        this.fileContentToString(this.filePath);
+    public void fileContentToWordArray(String filePath) {
+        this.fileContentToString(filePath);
         this.wordArray = this.getFileContentString().split(" ");
         System.out.println(Arrays.toString(this.wordArray));
     }
@@ -31,8 +34,8 @@ public class Article extends AnyFile {
         return this.wordArray;
     }
 
-    public void fileContentToWordCountMap() {
-        this.fileContentToWordArray();
+    public void fileContentToWordCountMap(String filePath) {
+        this.fileContentToWordArray(filePath);
         this.wordCountMap = new HashMap<String, Integer>();
         for (String word : this.getFileContenWordArray()) {
             word = word.toLowerCase();

@@ -7,17 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Map;
 
-public class ArticleTest {
-    private static Article article = null;
+public class AnyFileTest {
+    private static Article anyFile = null;
     private static String filePath = "";
 
     @BeforeAll
     public static void setUp() {
         filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
-        article = new Article(filePath);
-        article.fileContentToString(filePath);
-        article.fileContentToWordArray(filePath);
-        article.fileContentToWordCountMap(filePath);
+        anyFile = new Article(filePath);
+        anyFile.fileContentToString(filePath);
+        anyFile.fileContentToWordArray(filePath);
+        anyFile.fileContentToWordCountMap(filePath);
     }
 
     @Test
@@ -25,8 +25,8 @@ public class ArticleTest {
         // Given
         String expectedFilename = "myTest";
         // When
-        article.setName(expectedFilename);
-        String actualFilename = article.getName();
+        anyFile.setName(expectedFilename);
+        String actualFilename = anyFile.getName();
         // Then
         assertEquals(expectedFilename, actualFilename);
     }
@@ -36,7 +36,7 @@ public class ArticleTest {
         // Given
         String expectedContent = "The dog is not the cat.";
         // When
-        String actualContent = article.getFileContentString();
+        String actualContent = anyFile.getFileContentString();
         // Then
         assertEquals(expectedContent, actualContent);
     }
@@ -46,7 +46,7 @@ public class ArticleTest {
         // Given
         String[] expectedArray = {"The", "dog", "is", "not", "the", "cat."};
         // When
-        String[] actualArray = article.getFileContenWordArray();
+        String[] actualArray = anyFile.getFileContenWordArray();
         // Then
         assertArrayEquals(expectedArray, actualArray);
     }
@@ -57,7 +57,7 @@ public class ArticleTest {
         String expectedContent = "The dog is not the cat.";
         int expectedCountLowercaseThe = 2;
         // When
-        Map<String, Integer> wordCountMap = article.getWordCountMap();
+        Map<String, Integer> wordCountMap = anyFile.getWordCountMap();
         int actualCountLowercaseThe = wordCountMap.get("the");
         // Then
         assertEquals(expectedCountLowercaseThe, actualCountLowercaseThe);
