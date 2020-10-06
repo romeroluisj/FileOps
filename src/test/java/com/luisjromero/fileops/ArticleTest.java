@@ -21,27 +21,6 @@ public class ArticleTest {
     }
 
     @Test
-    public void getNameTest() {
-        // Given
-        String expectedFilename = "myTest";
-        // When
-        article.setName(expectedFilename);
-        String actualFilename = article.getName();
-        // Then
-        assertEquals(expectedFilename, actualFilename);
-    }
-
-    @Test
-    public void fileContentToStringTest() {
-        // Given
-        String expectedContent = "The dog is not the cat.";
-        // When
-        String actualContent = article.getFileContentString();
-        // Then
-        assertEquals(expectedContent, actualContent);
-    }
-
-    @Test
     public void fileContentAsWordArrayTest() {
         // Given
         String[] expectedArray = {"The", "dog", "is", "not", "the", "cat."};
