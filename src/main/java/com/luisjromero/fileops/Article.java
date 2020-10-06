@@ -17,7 +17,7 @@ public class Article extends AnyFile {
 
         String directoryPath = "/Users/luisromero/Dev/FileOps/article/";
         super.setDirectoryPath(directoryPath);
-        this.filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
+        this.filePath = "/Users/luisromero/Dev/FileOps/article/SpanishArticle.txt";
         super.setFilePath(filePath);
     }
 
@@ -48,5 +48,13 @@ public class Article extends AnyFile {
 
     public Map<String, Integer> getWordCountMap() {
         return this.wordCountMap;
+    }
+
+    public void printWordCountMap() {
+        for (String word: this.wordCountMap.keySet()){
+            String key = word.toString();
+            String value = this.wordCountMap.get(word).toString();
+            System.out.println(key + " " + value);
+        }
     }
 }
