@@ -2,9 +2,10 @@ package com.luisjromero.fileops;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Map;
 
 public class ArticleTest {
     private static Article article = null;
@@ -16,6 +17,7 @@ public class ArticleTest {
         filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
         article.fileContentToString(filePath);
         article.fileContentToWordArray();
+        article.fileContentToWordCountMap();
     }
 
     @Test
@@ -50,10 +52,14 @@ public class ArticleTest {
     }
 
     @Test
-    public void wordCountTest() {
+    public void fileContentToWordCountMapTest() {
         // Given
         String expectedContent = "The dog is not the cat.";
+        int expectedCountLowercaseThe = 2;
         // When
+        Map<String, Integer> wordCountMap = article.getWordCountMap();
+        int actualCountLowercaseThe = wordCountMap.get("the");
         // Then
+        assertEquals(expectedCountLowercaseThe, actualCountLowercaseThe);
     }
 }

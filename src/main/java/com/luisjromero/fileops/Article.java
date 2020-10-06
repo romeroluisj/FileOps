@@ -1,10 +1,13 @@
 package com.luisjromero.fileops;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Article extends AnyFile {
     private String filePath = "";
     private String[] wordArray;
+    private Map<String, Integer> wordCountMap;
 
     public Article() {
         String extension = ".txt";
@@ -23,7 +26,27 @@ public class Article extends AnyFile {
         this.wordArray = this.getFileContentString().split(" ");
         System.out.println(Arrays.toString(this.wordArray));
     }
+
     public String[] getFileContenWordArray() {
         return this.wordArray;
+    }
+
+    public void fileContentToWordCountMap() {
+        this.fileContentToWordArray();
+        this.wordCountMap = new HashMap<String, Integer>();
+        for (String word : this.getFileContenWordArray()) {
+            word = word.toLowerCase();
+            if (!wordCountMap.containsKey(word)) {  // first time we've seen this string
+                wordCountMap.put(word, 1);
+            }
+            else {
+                int count = wordCountMap.get(word);
+                wordCountMap.put(word, count + 1);
+            }
+        }
+    }
+
+    public Map<String, Integer> getWordCountMap() {
+        return this.wordCountMap;
     }
 }

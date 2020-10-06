@@ -17,7 +17,7 @@ public abstract class AnyFile {
     private boolean containsData = false;
     private String filePath = "";
     private String directoryPath = "";
-    private String fileContentString = "test";
+    private String fileContentString = "";
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
