@@ -6,3 +6,4 @@ git merge dev
 git pull origin main
 git push origin main
 git checkout dev
+git branch

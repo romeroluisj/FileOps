@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Map;
-
 public class AnyFileTest {
     private static Article anyFile = null;
     private static String filePath = "";
@@ -17,7 +15,7 @@ public class AnyFileTest {
         anyFile = new Article(filePath);
         anyFile.fileContentToString(filePath);
         anyFile.fileContentToWordArray(filePath);
-        anyFile.fileContentToWordCountMap(filePath);
+        anyFile.fileContentToWordCountHashMap(filePath);
     }
 
     @Test
