@@ -1,15 +1,15 @@
 package com.luisjromero.fileops;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class Article extends AnyFile {
     private String filePath = "";
     private String[] wordArray;
     private Map<String, Integer> wordCountHashMap;
-    private TreeMap<String, Integer> wordCountTreeMap;
+    private SortedMap<String, Integer> wordCountTreeMap;
 
     public Article() {
         String extension = ".txt";
@@ -23,7 +23,7 @@ public class Article extends AnyFile {
 
     public Article(String filePath) {
         this.filePath = filePath;
-        super.setFilePath(filePath);
+        super.setFilePath(this.filePath);
     }
 
     public void fileContentToWordArray(String filePath) {
@@ -59,7 +59,7 @@ public class Article extends AnyFile {
         this.wordCountTreeMap.putAll(wordCountHashMap);
     }
 
-    public TreeMap<String, Integer> getWordCountTreeMap() {
+    public SortedMap<String, Integer> getWordCountTreeMap() {
         return this.wordCountTreeMap;
     }
 

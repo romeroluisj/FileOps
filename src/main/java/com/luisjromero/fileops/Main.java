@@ -1,8 +1,5 @@
 package com.luisjromero.fileops;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 public class Main {
     public static void main(String[] args) {
         /**
@@ -11,7 +8,7 @@ public class Main {
         String fileContent = article.getFileContentString();
         System.out.println(fileContent);
          */
-        String filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
+        String filePath = "/Users/luisromero/Dev/FileOps/article/SpanishArticle.txt";
         Article article = new Article(filePath);
         article.fileContentToWordCountHashMap(filePath);
         article.printWordCountHashMap();

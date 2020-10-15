@@ -6,13 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class ArticleTest {
     private static Article article = null;
     private static String filePath = "";
     private static Map<String, Integer> wordCountHashMap;
-    private static TreeMap<String, Integer> wordCountTreeMap;
+    private static SortedMap<String, Integer> wordCountTreeMap;
 
     @BeforeAll
     public static void setUp() {
