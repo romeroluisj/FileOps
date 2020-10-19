@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Map;
 import java.util.SortedMap;
-import java.util.TreeMap;
 
 public class ArticleTest {
     private static Article article = null;
@@ -20,19 +19,19 @@ public class ArticleTest {
         filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
         article = new Article(filePath);
         article.fileContentToString(filePath);
-        article.fileContentToWordArray(filePath);
-        article.fileContentToWordCountHashMap(filePath);
+        article.stringToWordArray(article.getFileContentString());
+        article.stringToWordCountHashMap(article.getFileContentString());
         wordCountHashMap = article.getWordCountHashMap();
         article.wordCountHashMapToTreeMap(wordCountHashMap);
         wordCountTreeMap = article.getWordCountTreeMap();
     }
 
     @Test
-    public void fileContentAsWordArrayTest() {
+    public void stringToWordArrayTest() {
         // Given
         String[] expectedArray = {"The", "dog", "is", "not", "the", "cat."};
         // When
-        String[] actualArray = article.getFileContenWordArray();
+        String[] actualArray = article.getFileContentWordArray();
         // Then
         assertArrayEquals(expectedArray, actualArray);
     }
@@ -59,5 +58,18 @@ public class ArticleTest {
         // Then
         assertEquals(expectedLastKey, actualLastKey);
         assertEquals(expectedLastValue, actualLastValue);
+    }
+
+    @Test
+    public void replaceNewlinesWithSpaceTest() {
+        // Given
+        String fileContentString = "first\n\n\nlast";
+        String expectedModifiedString = "first last";
+        // When
+        article.setFileContentString(fileContentString);
+        article.replaceNewlinesWithSpace(article.getFileContentString());
+        String actualModifiedString = article.getFileContentString();
+        // Then
+        assertEquals(expectedModifiedString, actualModifiedString);
     }
 }

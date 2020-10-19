@@ -8,11 +8,10 @@ public class Main {
         String fileContent = article.getFileContentString();
         System.out.println(fileContent);
          */
-        String filePath = "/Users/luisromero/Dev/FileOps/article/SpanishArticle.txt";
+        String filePath = "/Users/luisromero/Dev/FileOps/article/RussianArticle.txt";
         Article article = new Article(filePath);
-        article.fileContentToWordCountHashMap(filePath);
-        article.printWordCountHashMap();
-        article.wordCountHashMapToTreeMap(article.getWordCountHashMap());
+        System.out.println(article.getFileContentString());
+
         article.printWordCountTreeMap();
         System.out.println("firstKey: " + article.getWordCountTreeMap().firstKey());
         System.out.println("lastKey: " + article.getWordCountTreeMap().lastKey());

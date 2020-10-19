@@ -22,30 +22,30 @@ public class Article extends AnyFile {
     }
 
     public Article(String filePath) {
-        this.filePath = filePath;
-        super.setFilePath(this.filePath);
+        super.setFilePath(filePath);
+        super.fileContentToString(filePath);
+        this.replaceNewlinesWithSpace(super.getFileContentString());
     }
 
-    public void fileContentToWordArray(String filePath) {
-        this.fileContentToString(filePath);
-        this.wordArray = this.getFileContentString().split(" ");
+    public void stringToWordArray(String string) {
+        this.wordArray = string.split(" ");
         //System.out.println("wordArray: \n" + Arrays.toString(this.wordArray) + "\n");
     }
 
-    public String[] getFileContenWordArray() {
+    public String[] getFileContentWordArray() {
         return this.wordArray;
     }
 
-    public void fileContentToWordCountHashMap(String filePath) {
-        this.fileContentToWordArray(filePath);
+    public void stringToWordCountHashMap(String string) {
+        this.stringToWordArray(string);
         this.wordCountHashMap = new HashMap<String, Integer>();
-        for (String word : this.getFileContenWordArray()) {
+        for (String word : this.getFileContentWordArray()) {
             word = word.toLowerCase();
-            if (!wordCountHashMap.containsKey(word)) {
-                wordCountHashMap.put(word, 1);
+            if (!this.wordCountHashMap.containsKey(word)) {
+                this.wordCountHashMap.put(word, 1);
             } else {
-                int count = wordCountHashMap.get(word);
-                wordCountHashMap.put(word, count + 1);
+                int count = this.wordCountHashMap.get(word);
+                this.wordCountHashMap.put(word, count + 1);
             }
         }
     }
@@ -81,5 +81,17 @@ public class Article extends AnyFile {
             System.out.println(key + " " + value);
         }
         System.out.println();
+    }
+
+    public void replaceNewlinesWithSpace(String string) {
+        String newString = string.replaceAll("\n+", " ");
+        super.setFileContentString(newString);
+        this.updateWordCount();
+        //System.out.println(super.getFileContentString());
+    }
+
+    public void updateWordCount() {
+        this.stringToWordCountHashMap(super.getFileContentString());
+        this.wordCountHashMapToTreeMap(this.wordCountHashMap);
     }
 }

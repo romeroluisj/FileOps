@@ -31,7 +31,7 @@ public abstract class AnyFile {
     public void setContainsData(boolean containsData) {this.containsData = containsData;}
     public String getFilePath() {return filePath;}
     public void setFilePath(String filePath) {this.filePath = filePath;}
-    public String getDirectoryPath() {return directoryPath; }
+    public String getDirectoryPath() {return directoryPath;}
     public void setDirectoryPath(String directoryPath) {this.directoryPath = directoryPath;}
 
     public void fileContentToString(String filePath) {
@@ -42,7 +42,6 @@ public abstract class AnyFile {
         }
     }
 
-    public String getFileContentString() {
-        return this.fileContentString;
-    }
+    public String getFileContentString() {return this.fileContentString;}
+    public void setFileContentString(String fileContentString) {this.fileContentString = fileContentString;}
 }

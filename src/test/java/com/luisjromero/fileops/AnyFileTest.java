@@ -14,8 +14,8 @@ public class AnyFileTest {
         filePath = "/Users/luisromero/Dev/FileOps/article/articleTest.txt";
         anyFile = new Article(filePath);
         anyFile.fileContentToString(filePath);
-        anyFile.fileContentToWordArray(filePath);
-        anyFile.fileContentToWordCountHashMap(filePath);
+        anyFile.stringToWordArray(filePath);
+        anyFile.stringToWordCountHashMap(filePath);
     }
 
     @Test
@@ -33,9 +33,21 @@ public class AnyFileTest {
     public void fileContentToStringTest() {
         // Given
         String expectedContent = "The dog is not the cat.";
+        this.anyFile.fileContentToString(this.filePath);
         // When
-        String actualContent = anyFile.getFileContentString();
+        String actualContent = this.anyFile.getFileContentString();
         // Then
         assertEquals(expectedContent, actualContent);
+    }
+
+    @Test
+    public void setFileContentStringTest() {
+        // Given
+        String expectedFileContentString = "test_a_test";
+        // When
+        anyFile.setFileContentString(expectedFileContentString);
+        String actualFileContentString = anyFile.getFileContentString();
+        // Then
+        assertEquals(expectedFileContentString, actualFileContentString);
     }
 }
