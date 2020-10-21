@@ -24,7 +24,8 @@ public class Article extends AnyFile {
     public Article(String filePath) {
         super.setFilePath(filePath);
         super.fileContentToString(filePath);
-        this.replaceNewlinesWithSpace(super.getFileContentString());
+        this.cleanStringForWordCount(super.getFileContentString());
+        this.updateWordCount();
     }
 
     public void stringToWordArray(String string) {
@@ -83,10 +84,14 @@ public class Article extends AnyFile {
         System.out.println();
     }
 
-    public void replaceNewlinesWithSpace(String string) {
-        String newString = string.replaceAll("\n+", " ");
-        super.setFileContentString(newString);
-        this.updateWordCount();
+    public void cleanStringForWordCount(String string) {
+        String newlineRegex = "\n+";
+        String punctuationRegex = "[.,;—–\\-!?]";
+        String multipleSpacesRegex = " +";
+        string = string.replaceAll(newlineRegex, " ");
+        string = string.replaceAll(punctuationRegex, "");
+        string = string.replaceAll(multipleSpacesRegex, " ");
+        super.setFileContentString(string);
         //System.out.println(super.getFileContentString());
     }
 

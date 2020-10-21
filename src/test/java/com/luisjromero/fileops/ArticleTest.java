@@ -37,7 +37,7 @@ public class ArticleTest {
     }
 
     @Test
-    public void fileContentToWordCountHashMapTest() {
+    public void stringToWordCountHashMapTest() {
         // Given
         String expectedContent = "The dog is not the cat.";
         int expectedCountLowercaseThe = 2;
@@ -61,13 +61,13 @@ public class ArticleTest {
     }
 
     @Test
-    public void replaceNewlinesWithSpaceTest() {
+    public void cleanStringForWordCountTest() {
         // Given
-        String fileContentString = "first\n\n\nlast";
-        String expectedModifiedString = "first last";
+        String fileContentString = "first, hi;\n\n\nlast.";
+        String expectedModifiedString = "first hi last";
         // When
         article.setFileContentString(fileContentString);
-        article.replaceNewlinesWithSpace(article.getFileContentString());
+        article.cleanStringForWordCount(article.getFileContentString());
         String actualModifiedString = article.getFileContentString();
         // Then
         assertEquals(expectedModifiedString, actualModifiedString);
