@@ -86,7 +86,7 @@ public class Article extends AnyFile {
 
     public void cleanStringForWordCount(String string) {
         String newlineRegex = "\n+";
-        String punctuationRegex = "[.,;—–\\-!?]";
+        String punctuationRegex = "[.,;:—–\\-!?()\\[\\]“”…/\"\']";
         String multipleSpacesRegex = " +";
         string = string.replaceAll(newlineRegex, " ");
         string = string.replaceAll(punctuationRegex, "");

@@ -2,7 +2,7 @@ package com.luisjromero.fileops;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "/Users/luisromero/Dev/FileOps/article/russian/sapiens_00036.txt";
+        String filePath = "/Users/luisromero/Dev/FileOps/article/SpanishArticle.txt";
         Article article = new Article(filePath);
         System.out.println(article.getFileContentString());
 
