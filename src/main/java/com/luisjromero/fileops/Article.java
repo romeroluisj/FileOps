@@ -67,9 +67,8 @@ public class Article extends AnyFile {
     public void printWordCountHashMap() {
         System.out.println("wordCountHashMap:");
         for (String word: this.wordCountHashMap.keySet()){
-            String key = word.toString();
-            String value = this.wordCountHashMap.get(word).toString();
-            System.out.println(key + " " + value);
+            String count = this.wordCountHashMap.get(word).toString();
+            System.out.println(word + " " + count);
         }
         System.out.println();
     }
@@ -77,9 +76,8 @@ public class Article extends AnyFile {
     public void printWordCountTreeMap() {
         System.out.println("wordCountTreeMap:");
         for (String word: this.wordCountTreeMap.keySet()){
-            String key = word.toString();
-            String value = this.wordCountTreeMap.get(word).toString();
-            System.out.println(key + " " + value);
+            String count = this.wordCountTreeMap.get(word).toString();
+            System.out.println(word + " " + count);
         }
         System.out.println();
     }

@@ -33,6 +33,8 @@ public abstract class AnyFile {
     public void setFilePath(String filePath) {this.filePath = filePath;}
     public String getDirectoryPath() {return directoryPath;}
     public void setDirectoryPath(String directoryPath) {this.directoryPath = directoryPath;}
+    public String getFileContentString() {return this.fileContentString;}
+    public void setFileContentString(String fileContentString) {this.fileContentString = fileContentString;}
 
     public void fileContentToString(String filePath) {
         try {
@@ -41,7 +43,4 @@ public abstract class AnyFile {
             e.printStackTrace();
         }
     }
-
-    public String getFileContentString() {return this.fileContentString;}
-    public void setFileContentString(String fileContentString) {this.fileContentString = fileContentString;}
 }
