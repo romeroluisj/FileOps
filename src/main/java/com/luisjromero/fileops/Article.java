@@ -33,14 +33,14 @@ public class Article extends AnyFile {
         //System.out.println("wordArray: \n" + Arrays.toString(this.wordArray) + "\n");
     }
 
-    public String[] getFileContentWordArray() {
+    public String[] getWordArray() {
         return this.wordArray;
     }
 
     public void stringToWordCountHashMap(String string) {
         this.stringToWordArray(string);
         this.wordCountHashMap = new HashMap<String, Integer>();
-        for (String word : this.getFileContentWordArray()) {
+        for (String word : this.getWordArray()) {
             word = word.toLowerCase();
             if (!this.wordCountHashMap.containsKey(word)) {
                 this.wordCountHashMap.put(word, 1);

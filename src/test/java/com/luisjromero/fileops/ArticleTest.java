@@ -31,7 +31,7 @@ public class ArticleTest {
         // Given
         String[] expectedArray = {"The", "dog", "is", "not", "the", "cat."};
         // When
-        String[] actualArray = article.getFileContentWordArray();
+        String[] actualArray = article.getWordArray();
         // Then
         assertArrayEquals(expectedArray, actualArray);
     }
