@@ -1,14 +1,13 @@
 package com.luisjromero.fileops;
 
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Article extends AnyFile {
     private String filePath = "";
     private String[] wordArray;
     private Map<String, Integer> wordCountHashMap;
+    private Map<String, Integer> ascendingWordCount;
+    private Map<String, Integer> descendingWordCount;
     private SortedMap<String, Integer> wordCountTreeMap;
 
     public Article() {
@@ -26,6 +25,7 @@ public class Article extends AnyFile {
         super.fileContentToString(filePath);
         this.cleanStringForWordCount(super.getFileContentString());
         this.updateWordCount();
+        this.sortMapByValue();
     }
 
     public void stringToWordArray(String string) {
@@ -54,6 +54,10 @@ public class Article extends AnyFile {
     public Map<String, Integer> getWordCountHashMap() {
         return this.wordCountHashMap;
     }
+    public Map<String, Integer> getAscendingWordCount() {
+        return this.ascendingWordCount;
+    }
+    public Map<String, Integer> getDescendingWordCount() { return this.descendingWordCount; }
 
     public void wordCountHashMapToTreeMap(Map<String, Integer> wordCountHashMap) {
         this.wordCountTreeMap = new TreeMap<String, Integer>();
@@ -82,6 +86,16 @@ public class Article extends AnyFile {
         this.printMapWithForLoop(this.wordCountTreeMap);
     }
 
+    public void printAscendingWordCount() {
+        System.out.println("ascendingWordCount:");
+        this.printMapWithForLoop(this.ascendingWordCount);
+    }
+
+    public void printDescendingWordCount() {
+        System.out.println("descendingWordCount:");
+        this.printMapWithForLoop(this.descendingWordCount);
+    }
+
     public void cleanStringForWordCount(String string) {
         String newlineRegex = "\n+";
         String punctuationRegex = "[.,;:—–\\-!?()\\[\\]“”…/\"\']";
@@ -96,5 +110,19 @@ public class Article extends AnyFile {
     public void updateWordCount() {
         this.stringToWordCountHashMap(super.getFileContentString());
         this.wordCountHashMapToTreeMap(this.wordCountHashMap);
+    }
+
+    public void sortMapByValue() {
+        this.ascendingWordCount = new LinkedHashMap<String, Integer>();
+        this.wordCountTreeMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .forEachOrdered(x -> this.ascendingWordCount.put(x.getKey(), x.getValue()));
+
+        this.descendingWordCount = new LinkedHashMap<String, Integer>();
+        this.wordCountTreeMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .forEachOrdered(x -> this.descendingWordCount.put(x.getKey(), x.getValue()));
     }
 }
